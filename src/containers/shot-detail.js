@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Alert from 'react-s-alert';
 import Loader from "../components/utils/loader";
 import ShotTags from "../components/shots/shot-tags";
 import ShotUserInfo from "../components/shots/shot-user-info";
@@ -10,6 +11,8 @@ import ShotMoreFromUser from "../components/shots/shot-more-from-user";
 import {Grid, Row, Col} from "react-bootstrap";
 import * as shotsService from "../services/shotsService";
 import * as userService from "../services/userService";
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 
 export default class ShotDetail extends Component {
     constructor(props) {
@@ -25,6 +28,12 @@ export default class ShotDetail extends Component {
     componentDidMount() {
         this.getShot();
         this.getShotComments();
+
+        Alert.info('Uhull', {
+            position: 'top-right',
+            effect: 'jelly',
+            timeout: 'none'
+        });
     }
 
     getShot() {
@@ -47,6 +56,12 @@ export default class ShotDetail extends Component {
                 }
             })
             .catch((error) => {
+                Alert.info('Erro ao buscar shots. Atualize a página', {
+                    position: 'top-right',
+                    effect: 'jelly',
+                    timeout: 'none'
+                });
+
                 this.setState({loading: false});
             });
     }
@@ -72,7 +87,11 @@ export default class ShotDetail extends Component {
                 }
             })
             .catch((error) => {
-                console.log(error);
+                Alert.info('Erro ao buscar shots do usuário. Atualize a página', {
+                    position: 'top-right',
+                    effect: 'jelly',
+                    timeout: 'none'
+                });
             });
     }
 
@@ -89,7 +108,11 @@ export default class ShotDetail extends Component {
                 }
             })
             .catch((error) => {
-                console.log(error);
+                Alert.info('Erro ao buscar comentários. Atualize a página', {
+                    position: 'top-right',
+                    effect: 'jelly',
+                    timeout: 'none'
+                });
             })
     }
 
@@ -98,37 +121,51 @@ export default class ShotDetail extends Component {
             <Grid>
                 <Row className="show-grid shot-detail">
                     <Col xs={12} lg={11} lgOffset={1}>
-                        {/* Informação do usuário criador do shot */}
-                        {this.state.shot && <ShotUserInfo shot={this.state.shot}/>}
+                        {
+                            /* Informação do usuário criador do shot */
+                            this.state.shot && <ShotUserInfo shot={this.state.shot}/>
+                        }
                     </Col>
 
                     <Col xs={12} md={8} lg={6} lgOffset={1}>
-                        {/* Box com imagem principal e anexos do shot */}
-                        {this.state.shot && <ShotImageBox shotId={this.state.shot.id} images={this.state.shot.images}/>}
+                        {
+                            /* Box com imagem principal e anexos do shot */
+                            this.state.shot &&
+                            <ShotImageBox shotId={this.state.shot.id} images={this.state.shot.images}/>
+                        }
 
-                        {/* Descrição do shot */}
-                        {this.state.shot && <ShotDescription description={this.state.shot.description}/>}
+                        {
+                            /* Descrição do shot */
+                            this.state.shot && <ShotDescription description={this.state.shot.description}/>
+                        }
 
                         <hr />
 
-                        {/* Comentários sobre o shot */}
-                        {this.state.shot && <ShotCommentList comments={this.state.comments}/>}
+                        {
+                            /* Comentários sobre o shot */
+                            this.state.shot && <ShotCommentList comments={this.state.comments}/>
+                        }
                     </Col>
                     <Col xs={12} md={4} lg={3} lgOffset={1}>
-                        {/* Informações sobre os likes, rebounds e buckets */}
-                        {this.state.shot && <ShotSocialInformationBox
-                            likes={this.state.shot.likes_count}
-                            rebounds={this.state.shot.rebounds_count}
-                            buckets={this.state.shot.buckets_count}/>}
-
-                        {/* Listagem de mais ofertas do usuário */}
                         {
+                            /* Informações sobre os likes, rebounds e buckets */
+                            this.state.shot && <ShotSocialInformationBox
+                                likes={this.state.shot.likes_count}
+                                rebounds={this.state.shot.rebounds_count}
+                                buckets={this.state.shot.buckets_count}/>
+                        }
+
+                        {
+                            /* Listagem de mais shots do usuário */
                             this.state.shot &&
                             <ShotMoreFromUser userShots={this.state.userShots} user={this.state.shot.user}/>
                         }
                         <hr />
 
-                        {this.state.shot && <ShotTags tags={this.state.shot.tags}/> }
+                        {
+                            /* Listagem de TAGAS */
+                            this.state.shot && <ShotTags tags={this.state.shot.tags}/>
+                        }
                     </Col>
                 </Row>
 

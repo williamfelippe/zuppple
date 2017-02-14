@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router";
 import {Glyphicon, Image} from "react-bootstrap";
 import ShotDescription from "./shot-description";
-import * as shotsService from "../../services/shotsService";
-import * as dateFormat from '../../utils/date-format';
+import * as dateFormat from "../../utils/date-format";
 
 export default class ShotItem extends Component {
     constructor(props) {
@@ -14,14 +13,7 @@ export default class ShotItem extends Component {
     }
 
     likeShot() {
-        shotsService
-            .likeShot(this.props.shot.id)
-            .then((response) => {
-                this.state({liked: true});
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        this.state({liked: !this.state.liked});
     }
 
     render() {

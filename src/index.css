@@ -47,16 +47,21 @@ header {
 }
 
 .logo a:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(239, 173, 13, 0.8);
+
 }
 
 /* SHOT LIST */
 .shots-list {
+    justify-content: center;
     list-style: none;
     padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+}
+
+.user-detail-shots-list .shots-list {
+    margin-top: 10px;
 }
 
 .shots-list li {
@@ -282,6 +287,23 @@ header {
 .shots-from-user li {
     display: inline-block;
     margin: 0 5px;
+}
+
+/* USER DETAIL */
+.user-detail-box {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.user-detail-box img {
+    width: 100px;
+    margin: 20px auto 0;
+    display: block;
 }
 
 /* CHANGE LAYOUT BUTTONS */

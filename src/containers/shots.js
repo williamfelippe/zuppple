@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Alert from 'react-s-alert';
 import {Row, Col} from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroller";
 import _ from "lodash";
@@ -7,6 +8,8 @@ import ShotsList from "../components/shots/shot-list";
 import ShotsFilter from "../components/shots/shot-filter";
 import ShotsSearch from "../components/shots/shot-search";
 import * as shotsService from "../services/shotsService";
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 
 export default class Shots extends Component {
     constructor() {
@@ -42,7 +45,11 @@ export default class Shots extends Component {
                     }
                 })
                 .catch((error) => {
-                    console.log(error);
+                    Alert.info('Erro ao buscar shots. Atualize a página', {
+                        position: 'top-right',
+                        effect: 'jelly',
+                        timeout: 'none'
+                    });
                 })
         }
     }
@@ -63,7 +70,7 @@ export default class Shots extends Component {
 
         const valueToSearchBy = this.state.valueToSearchBy.toLowerCase();
 
-        if(valueToSearchBy !== '') {
+        if (valueToSearchBy !== '') {
             let shots = _.filter(this.state.shots, (shot) => {
                 return _.includes(shot.title.toLowerCase(), valueToSearchBy);
             });
