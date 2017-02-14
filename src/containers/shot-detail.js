@@ -28,12 +28,6 @@ export default class ShotDetail extends Component {
     componentDidMount() {
         this.getShot();
         this.getShotComments();
-
-        Alert.info('Uhull', {
-            position: 'top-right',
-            effect: 'jelly',
-            timeout: 'none'
-        });
     }
 
     getShot() {
