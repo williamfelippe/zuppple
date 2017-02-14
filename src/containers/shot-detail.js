@@ -77,7 +77,7 @@ export default class ShotDetail extends Component {
                     }
                 }
                 else {
-                    throw response;
+                    throw response.data;
                 }
             })
             .catch((error) => {
@@ -99,6 +99,9 @@ export default class ShotDetail extends Component {
 
                 if (statusCode === 200) {
                     this.setState({comments: response.data});
+                }
+                else {
+                    throw response.data;
                 }
             })
             .catch((error) => {
