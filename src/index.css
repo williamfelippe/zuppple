@@ -1,0 +1,381 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: rgba(47, 47, 47, 0.03);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.zuppple-app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* CONTAINER */
+.large-container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* HEADER */
+header {
+    background-color: rgba(47, 47, 47, 0.8);
+    display: flex;
+    min-height: 80px;
+    padding: 0 30px;
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Sacramento', cursive;
+    font-size: 40px;
+    margin: auto;
+}
+
+.logo a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* SHOT LIST */
+.shots-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.shots-list li {
+    margin: 10px 5px;
+    float: left;
+}
+
+/* SHOT ITEM */
+.shot-item .shot-item-box {
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: 300;
+    height: 200px;
+}
+
+.shot-item .shot-item-box a {
+    text-decoration: none;
+}
+
+.shot-item .shot-item-box.larger {
+    width: 400px;
+    height: 350px;
+}
+
+.shot-item .shot-item-box .photo {
+    background-size: cover !important;
+    width: 100%;
+}
+
+.shot-item .shot-item-box .photo {
+    height: 150px;
+}
+
+.shot-item .shot-item-box.larger .photo {
+    height: 300px;
+}
+
+.shot-item .shot-item-box .informations {
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 100%;
+    display: none;
+    padding: 5px;
+
+    -webkit-transition: all 4s ease-in;
+    -moz-transition: all 4s ease-in;
+    -o-transition: all 4s ease-in;
+    transition: all 4s ease-in;
+}
+
+.shot-item .shot-item-box:hover .informations {
+    display: block;
+
+    -webkit-transition: all 4s ease-in;
+    -moz-transition: all 4s ease-in;
+    -o-transition: all 4s ease-in;
+    transition: all 4s ease-in;
+
+    color: rgba(47, 47, 47, 1) !important;
+}
+
+.shot-item .shot-item-box .informations strong {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 25px;
+    font-weight: 500;
+}
+
+.shot-item .shot-item-box:hover .informations span {
+    font-size: 10px;
+    height: 100px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shot-item .shot-item-box .date {
+    text-align: right;
+    font-size: 12px;
+    height: 25px;
+}
+
+.shot-item .shot-item-box .count {
+    float: right;
+    font-size: 13px;
+    margin: 10px 0;
+    z-index: 2;
+    position: relative;
+}
+
+.shot-item .shot-item-box .count li {
+    display: inline-block;
+    margin: 0 5px;
+    color: rgba(47, 47, 47, 1) !important;
+}
+
+.shot-item .shot-item-box .count .like {
+    cursor: pointer;
+}
+
+.shot-item .shot-item-box .count .like.active {
+    color: rgba(176, 49, 56, 0.8);
+}
+
+.shot-item .avatar {
+    list-style: none;
+    display: table-cell;
+}
+
+.shot-item .avatar li {
+    display: inline-block;
+}
+
+.shot-item + .avatar li:first-child {
+    margin-right: 5px;
+}
+
+.shot-item .avatar img {
+    width: 20px;
+    height: 20px;
+}
+
+.shot-detail {
+    padding: 30px;
+}
+
+/* TAGS */
+.shot-detail .tags ul {
+    padding: 0;
+}
+
+.shot-detail .tags li {
+    display: inline-block;
+    margin: 0 10px;
+    list-style: none;
+    font-size: 13px;
+}
+
+/* USER INFO */
+.shot-detail .user-info {
+    margin-bottom: 15px;
+}
+
+.shot-detail .user-info img {
+    width: 60px;
+    margin-right: 15px;
+}
+
+.shot-detail .user-info h2 {
+    margin: 0;
+}
+
+/* COMMENTS */
+.shot-comments .avatar {
+    width: 36px;
+    margin-right: 10px;
+    float: left;
+}
+
+.shot-comments .body h4 {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* IMAGE BOX */
+.shot-image-box {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.shot-image-box .main-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.shot-image-box ul {
+    padding: 0;
+    list-style: none;
+}
+
+.shot-image-box ul li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.shot-image-box ul li img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* SOCIAL */
+.shot-social-information {
+    list-style: none;
+    padding: 0;
+}
+
+.shot-social-information li {
+    padding: 7px 0;
+    margin-bottom: 7px;
+    font-size: 17px;
+    border-bottom: rgba(47, 47, 47, 0.05) solid thin;
+    color: rgba(47, 47, 47, 0.5);
+}
+
+/* SEARCH BAR */
+.shots-search-bar {
+    margin: 20px 0;
+}
+
+.shots-from-user {
+    list-style: none;
+    padding: 0;
+}
+
+.shots-from-user li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* CHANGE LAYOUT BUTTONS */
+.change-layout-list-buttons {
+    margin: 20px 0;
+}
+
+/* FOOTER */
+footer {
+    border-top: rgba(239, 173, 13, 1) solid thin;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+footer .row {
+    min-height: 200px;
+    display: flex;
+}
+
+footer .row > div {
+    display: flex;
+}
+
+footer .row p {
+    margin: auto;
+    font-size: 13px;
+}
+
+footer .row .zup-logo {
+    height: 100px;
+    margin: auto;
+}
+
+/* LOADER */
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: dots 1.8s infinite ease-in-out;
+    animation: dots 1.8s infinite ease-in-out;
+}
+
+.loader {
+    color: rgba(47, 47, 47, 1);
+    font-size: 10px;
+    margin: 80px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 3.5em;
+}
+
+/* ANIMATION TO LOADER */
+@-webkit-keyframes dots {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+@keyframes dots {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
