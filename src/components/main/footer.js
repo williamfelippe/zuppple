@@ -8,8 +8,8 @@ export default class Footer extends Component {
             <footer>
                 <Row>
                     <Col xs={12} md={6}>
-                        <img src={ZupLogo} alt="Zup IT Innovation"
-                             className="img-responsive pull-right zup-logo"/>
+                        <Image src={ZupLogo} alt="Zup IT Innovation" responsive
+                             className="pull-right zup-logo"/>
                     </Col>
                     <Col xs={12} md={4}>
                         <p className="description">
