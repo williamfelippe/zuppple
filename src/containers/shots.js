@@ -26,7 +26,6 @@ export default class Shots extends Component {
 
     componentDidMount() {
         this.listShots();
-
     }
 
     listShots() {
