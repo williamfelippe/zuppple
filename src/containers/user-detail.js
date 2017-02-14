@@ -63,7 +63,7 @@ export default class UserDetail extends Component {
                     this.setState({userShots: response.data});
                 }
                 else {
-                    throw response;
+                    throw response.data;
                 }
             })
             .catch((error) => {
