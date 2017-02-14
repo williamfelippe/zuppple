@@ -30,6 +30,9 @@ export default class ShotImageBox extends Component {
                 if (statusCode === 200) {
                     this.setState({attachments: response.data});
                 }
+                else {
+                    throw response.data;
+                }
             })
             .catch((error) => {
                 Alert.info('Erro ao buscar anexos. Atualize a página', {
