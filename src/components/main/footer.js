@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col} from "react-bootstrap";
+import {Row, Col, Image} from "react-bootstrap";
 import ZupLogo from '../../../public/images/zup-logo.png';
 
 export default class Footer extends Component {
